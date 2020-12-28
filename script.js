@@ -28,9 +28,15 @@ async function saveClient(client) {
   data.push(client);
   localStorage.setItem('clients', JSON.stringify(data));
 }
+function loadClients() {
+  data.forEach((client) => {
+    createRow(client);
+  });
+}
 window.onload = function () {
   function getData() {
     data = JSON.parse(localStorage.getItem('clients'));
   }
   getData();
+  loadClients();
 };
