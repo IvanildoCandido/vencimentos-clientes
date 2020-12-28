@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cadastro de Clientes</title>
+  </head>
+  <body>
+    <section class="content">
+      <section class="personalInfo">
+        <h1>Cadastro de Clientes</h1>
+        <label for="txtName">Nome do Cliente</label>
+        <input type="text" name="" id="txtName" placeholder="Nome" />
+        <label for="txtValue">Valor do Serviço</label>
+        <input type="text" name="" id="txtValue" placeholder="Valor" />
+        <label for="txtDueDate">Data de Vencimento</label>
+        <input type="date" name="" id="txtDueDate" />
+        <section class="control">
+          <input type="button" value="Cadastrar" id="btnAdd" />
+        </section>
+      </section>
+      <section class="dataView">
+        <h2>Lista de Clientes</h2>
+        <table border="1px" class="clientList">
+          <tr>
+            <th>Cliente</th>
+            <th>Data de Vencimento</th>
+            <th>Valor</th>
+          </tr>
+        </table>
+      </section>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  margin: 20px auto;
+}
+.personalInfo {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  margin: 0 30px;
+}
+.control {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.dataView {
+  text-align: center;
+}
+.clientList th {
+  width: 200px;
+}
