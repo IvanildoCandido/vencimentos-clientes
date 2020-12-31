@@ -6,7 +6,31 @@ const btnAdd = document.querySelector('#btnAdd');
 let data = [];
 btnAdd.addEventListener('click', addToList);
 clientList.addEventListener('click', deleteItem);
+clientList.addEventListener('click', filter);
 
+function filter(e) {
+  if (e.target.classList.contains('fa-sort')) {
+    sortData(e.target.parentElement.innerText);
+  }
+}
+function sortData(element) {
+  console.log(typeof element, element);
+  let property = null;
+  if (element === 'Cliente') {
+    property = 'name';
+  }
+  if (element === 'Data de Vencimento') {
+    property = 'dueDate';
+  }
+  while (clientList.rows.length > 1) {
+    clientList.deleteRow(1);
+  }
+  data
+    .sort((a, b) => {
+      return a[property] > b[property] ? 1 : b[property] > a[property] ? -1 : 0;
+    })
+    .forEach((client) => createRow(client));
+}
 function deleteItem(e) {
   btnAdd.addEventListener('click', addToList);
   if (e.target.classList.contains('fa-trash-alt')) {
