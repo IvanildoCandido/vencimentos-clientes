@@ -3,10 +3,20 @@ const txtValue = document.querySelector('#txtValue');
 const txtDueDate = document.querySelector('#txtDueDate');
 const clientList = document.querySelector('.clientList');
 const btnAdd = document.querySelector('#btnAdd');
+const ckPaid = document.querySelector('.paid');
 let data = [];
 btnAdd.addEventListener('click', addToList);
 clientList.addEventListener('click', deleteItem);
 clientList.addEventListener('click', filter);
+clientList.addEventListener('click', checkPaid);
+
+function checkPaid(e) {
+  if (e.target.classList.contains('paid')) {
+    if (e.target.checked === true) {
+      alert('Ativou o checkBox!');
+    }
+  }
+}
 
 function filter(e) {
   if (e.target.classList.contains('fa-sort')) {
@@ -54,8 +64,10 @@ function addToList() {
   const dataObject = {};
   dataObject.name = txtName.value;
   dataObject.dueDate = txtDueDate.value;
+  console.log(txtDueDate.value);
   dataObject.amount = txtValue.value;
-  dataObject.actions = '<i class="fas fa-trash-alt"></i>';
+  dataObject.actions =
+    '<i class="fas fa-trash-alt"></i> <input type="checkbox" class="paid">';
   createRow(dataObject);
   saveClient(dataObject);
 }
